@@ -1,0 +1,15 @@
+I will create a Python application which will pop-up a window in which the user will be requested to browse for an excel file within
+his personal computer. 
+
+The application will then display in a more elevated manner the information which is in the excel file.
+
+Main information that should be displayed:
+- The columns which the excel has
+- The data type under each column
+- Number of columns
+- Number of rows under each column.
+- Ability to search for any keyword and the app will give you the coordinates for it within the excel file
+
+If we close the application, the user will be prompted with "Are you sure you want to close?"
+
+App will be polished as soon as I get more ideas.
