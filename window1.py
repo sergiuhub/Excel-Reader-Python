@@ -3,21 +3,25 @@ import tkinter as tk    #importing the library for pop-up window
 from tkinter import messagebox as mb 
 
 
-
 def login():
+    global username
+    global password
+    
     username = entry_username.get()
     password = entry_password.get()
 
     if username == "admin" and password =="123":
-        #logged_on = 1
+        global logged_on
+
+        logged_on = 1
         mb.showinfo("Login Succesful" , "Welcome, " +  username + "!")
         print("Logged-in Succesfully.")
         window.destroy()                     # this can be commented-out if I want the main window not to be destroyed.
-        logged_on = 1
+        
 
     else:
         logged_on = 2
-        mb.showerror("Login failed!" , "Invalid credentials")
+        mb.showerror("Login failed!" , "Invalid Credentials.")
         print("Login Failed.")
 
 
@@ -50,27 +54,21 @@ entry_username.grid(row=0, column=1, padx=5, pady=5, sticky="w")
 entry_password.grid(row=1, column=1, padx=5, pady=5, sticky="w")
 button_login.grid(row=2, column=0, columnspan=2, pady=5)
 
+
 if logged_on == 0:
-    print("You are in the process of loggining in.")
-
-if logged_on == 1:
-    print("Going into the main window")
-# aici de lucrat ? dc nu intra in window nou acest print ??????
-    
-
-
-
-
-
-    
-
-
-
-
-
+    print("You are in the process of loggining in.")                  #initial message when running the app. afterwards the logged_on variable is changed and doesn't show again the msg.
 
 
 
 window.mainloop()                            #triggers the loop so that the window is running until closure (or something like that)
 
+if logged_on == 1:
 
+    print("Going into the main window.")
+
+    main = tk.Tk()
+    main.configure(bg = "#EFAEA1")             
+    main.geometry("800x400")                  
+    main.title("Excel-Reader-Application -- " + username)     
+
+    main.mainloop()
