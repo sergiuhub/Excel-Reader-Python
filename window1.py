@@ -9,12 +9,19 @@ def login():
     password = entry_password.get()
 
     if username == "admin" and password =="123":
+        #logged_on = 1
         mb.showinfo("Login Succesful" , "Welcome, " +  username + "!")
-        #window.destroy()                     # this can be commented-out if I want the main window not to be destroyed.
+        print("Logged-in Succesfully.")
+        window.destroy()                     # this can be commented-out if I want the main window not to be destroyed.
+        logged_on = 1
+
     else:
+        logged_on = 2
         mb.showerror("Login failed!" , "Invalid credentials")
+        print("Login Failed.")
 
 
+logged_on = 0
 
 window = tk.Tk()                             #initializez the creation of the GUI window
 window.configure(bg = "#EFAEA1")             #sets the color of the backround to a light brown
@@ -31,7 +38,6 @@ entry_password = tk.Entry(window, show="*")
 button_login = tk.Button(window, text="Login", command=login)
 
 
-
 window.grid_columnconfigure(0, weight=1)
 window.grid_columnconfigure(1, weight=1)
 window.grid_rowconfigure(0, weight=1)
@@ -44,6 +50,13 @@ entry_username.grid(row=0, column=1, padx=5, pady=5, sticky="w")
 entry_password.grid(row=1, column=1, padx=5, pady=5, sticky="w")
 button_login.grid(row=2, column=0, columnspan=2, pady=5)
 
+if logged_on == 0:
+    print("You are in the process of loggining in.")
+
+if logged_on == 1:
+    print("Going into the main window")
+# aici de lucrat ? dc nu intra in window nou acest print ??????
+    
 
 
 
